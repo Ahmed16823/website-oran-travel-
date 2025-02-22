@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORAN GUIDE</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images\logo oran icon.png" type="image/gif" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            color:#000000;
+            margin: 20px 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 20px;
+        }
+        #map {
+            width: 60%;
+            height: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .table-container {
+            width: 40%;
+            height: 600px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            overflow-y: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0390f;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            #map, .table-container {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            #map {
+                height: 400px;
+            }
+            .table-container {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body class="main-layout inner_page">
+    <!-- header -->
+    <div class="header">
+        <div class="container-fluid">
+            <div class="row d_flex">
+                <div class=" col-md-2 col-sm-3 col logo_section">
+                    <div class="full">
+                        <div class="center-desk">
+                            <div class="logo">
+                                <a href="index.html"><img src="images\logo oran.png" alt="#" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-12">
+                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.html">About</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="Means of transport.html">Means of transport</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-md-2">
+                    <ul class="email text_align_right">
+                        <li class="d_none"><a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        <li class="d_none"> <a href="Javascript:void(0)"><i class="fa fa-search" style="cursor: pointer;" aria-hidden="true"></i></a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2> CARTE ET ITINÉRAIRES DES BUS - ORAN</h2>
+
+    <div class="container">
+        <!-- 🚌 Tableau des bus à gauche -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ligne</th>
+                        <th>Arrêts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>8</td><td>Médina Djadida → Station El Bahia → AADL 1300 El Hassi</td></tr>
+                    <tr><td>38</td><td>Station El Bahia → Quartier Rabah Misserghine</td></tr>
+                    <tr><td>103</td><td>Station El Bahia → Castor → Bir El Djir → Université Belgaid</td></tr>
+                    <tr><td>G52</td><td>Médina Djadida → Ritaj Mall → El Bahia → USTO → Station Es-Sabah</td></tr>
+                    <tr><td>S</td><td>Dar El Hayat → El Hamri → Station El Bahia → Cité Djamal Eddine → Canastel → Université Belgaid</td></tr>
+                    <tr><td>11</td><td>Place Valero → Place Gargita → Rue Ali Ben Mehidi → Lycée Akid Lotfi → Gambita → HLM → El Morshed → USTO → Cité Es-Sabah → Station Cité Es-Sabah</td></tr>
+                    <tr><td>P</td><td>Lycée Akid Lotfi → Gambita → Saddikia → Le Méridien → Akid Lotfi → Canastel → Université Belgaid</td></tr>
+                    <tr><td>102</td><td>Dar El Hayat → El Hamri → Cité El Platou → La Wilaya → Gambita → HLM → El Morshed → Clinique Nakkach → USTO → Cité Es-Sabah → Cité El Yasmine → Cité El Nour</td></tr>
+                    <tr><td>4G</td><td>Yaghmurasen → Salanas → Polongi → Médina Djadida → El Platou → Sécurité Sociale → Télévision Algérienne → Az-Zerâa → Castor → El Dar El Beida → Cité Djamal Eddine → Clinique Nakkach → El Morshed → Machtala → USTO → Direction des Moudjahidines</td></tr>
+                    <tr><td>H</td><td>El Rouchi → Les Amandiers → Maraval → L'Ansab → El Amir → El Bahia → Cité Djamal Eddine → Hôpital → Cité Es-Sabah → Cité El Yasmine → Logements AADL → Millenium → Colonel Belidour → Canastel</td></tr>
+                    <tr><td>B</td><td>Cité El Louz → Betti → La Classière → Maraval → Lauriers → Cherefawi → Meddioni → Stade Ahmed Zabana → Parc d'Attractions → Térigo → Pasti → Castor → Dar El Beida → Soudariche → Tarbia → Chalam → Saddikia</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 🗺️ Carte à droite -->
+        <div id="map"></div>
+    </div>
+
+    <!-- Footer -->
+    <!--  footer -->
+    <footer>
+      <div class="footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4 ">
+                  <div class="infoma">
+                     <h3>Contact Us</h3>
+                     <ul class="conta">
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i>Locations:ENSGTS, 10 avenue de la Palestine, BP14,31200, Arzew, W. Oran.
+                        </li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i>Call +213660456328</li>
+                        <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="Javascript:void(0)"> ENSGTS@gmail.com</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-md-8">
+                  <div class="row border_left">
+                     <div class="col-md-12">
+                        <div class="infoma">
+                           <h3>Newsletter</h3>
+                           <form class="form_subscri">
+                              <div class="row">
+                                 <div class="col-md-12">
+                                 </div>
+                                 <div class="col-md-4">
+                                    <input class="newsl" placeholder="Enter your email" type="text" name="Enter your email">
+                                 </div>
+                                 <div class="col-md-4">
+                                    <input class="newsl" placeholder="Enter your email" type="text" name="Enter your email">
+                                 </div>
+                                 <div class="col-md-4">
+                                    <button class="subsci_btn">subscribe</button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                     <div class="col-md-9">
+                        <div class="infoma">
+                           <h3>Useful Link</h3>
+                           <ul class="fullink">
+                              <li><a href="index.html">Home</a></li>
+                              <li><a href="about.html">About</a></li>
+                              <li><a href="Means of transport.html">Means of transport</a></li>
+                              <li><a href="contact.html">Contact Us</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="infoma text_align_left">
+                           <ul class="social_icon">
+                              <li><a href="https://www.facebook.com/miidouuuuuu/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                              <li><a href="https://x.com/draaxdz"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                              <li><a href="https://www.linkedin.com/in/ahmed-mahmoudi-a804772b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                              <li><a href="https://www.instagram.com/its._.midouuuu/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="copyright">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <p>© 2025 All Rights Reserved. Design by <a href="https://www.instagram.com/its._.midouuuu/"> MAHMOUDI AHMED</a></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <!-- end footer -->
+   <!-- Javascript files-->
+   <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWlkb3V1dXUiLCJhIjoiY203ZjdrZ2F5MGVwYjJpcXhqNms0ZTRreSJ9.tvyXIf_-RFZ1I24bvDPxSQ';
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-0.621, 35.697],
+        zoom: 12
+    });
+    </script>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.0.0.min.js"></script>
+   <!-- sidebar -->
+   <script src="js/custom.js"></script>
+   <script>
+      AOS.init();
+   </script>
+</body>
+</html>
